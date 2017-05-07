@@ -1,0 +1,13 @@
+.episode-right{
+    background-image: url(http://res.cloudinary.com/dzaidinjj/image/upload/v1494062465/nguoi-phan-xu-1_jgonb0.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 121px;
+}
+.playing{
+    border-left: red 5px solid;
+}
+.episode-right h3{
+    color: white;
+}
