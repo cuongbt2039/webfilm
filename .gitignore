@@ -16,18 +16,15 @@ bootstrap/cache/
 nbproject/
 /node_modules
 
-/public
-/storage
+storage/
 
-/public
-/hot
+public/
+hot/
 
-/storage
+storage/
 /*.key
 
-/vendor
-
-/.idea
+.idea
 Homestead.json
 Homestead.yaml
 .env
