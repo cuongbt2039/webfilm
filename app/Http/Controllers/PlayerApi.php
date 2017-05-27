@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\UserEpisode;
 use App\Episode;
+use Illuminate\Http\Response;
 
 class PlayerApi extends Controller {
 
@@ -22,17 +23,17 @@ class PlayerApi extends Controller {
 
     public function getEpisode() {
         $userEpisode = UserEpisode::where('cookie_code', COOKIE_CODE)
-                ->join('users', 'users.id', '=', 'user_espisode.user_id')
-                ->join('episodes', 'episodes.id', '=', 'user_espisode.episode_id')
-                ->orderBy('user_espisode.updated_at', 'desc')
+                ->join('users', 'users.id', '=', 'user_episode.user_id')
+                ->join('episodes', 'episodes.id', '=', 'user_episode.episode_id')
+                ->orderBy('user_episode.updated_at', 'desc')
                 ->distinct()
                 ->limit(1)
-                ->get(['episodes.youtube_id', 'user_espisode.current_time']);
-        if(count($userEpisode)){
+                ->get(['episodes.video_id', 'user_episode.current_time']);
+        if (count($userEpisode)) {
             $userEpisode['success'] = 1;
-        }else{
+        } else {
             $userEpisode['success'] = 0;
-            $userEpisode['youtube_id'] = 'x5hu6co';
+            $userEpisode['video_id'] = 'x5hu6co';
         }
         echo json_encode($userEpisode);
     }
@@ -42,15 +43,15 @@ class PlayerApi extends Controller {
             echo "error:no_cookie_code";
         } else {
             $episode_id = Input::get('episode_id');
-            $episode = Episode::where('youtube_id', $episode_id)->first();
+            $episode = Episode::where('video_id', $episode_id)->first();
             $current_time = Input::get('time');
             $user = User::createUserFromCookie();
             $userEpisode = UserEpisode::where("episode_id", $episode->id)
                     ->where('user_id', $user->id)
                     ->first();
-            if($userEpisode){
+            if ($userEpisode) {
                 $userEpisode->current_time = $current_time;
-            }else{
+            } else {
                 $userEpisode = new UserEpisode();
                 $userEpisode->episode_id = $episode->id;
                 $userEpisode->user_id = $user->id;
@@ -61,8 +62,17 @@ class PlayerApi extends Controller {
         echo COOKIE_CODE;
     }
 
-    public function putEpisode() {
-        
+    public function nextEpisode() {
+        $id_current_episode = Input::get('episode_id');
+        $episode_current = Episode::where('video_id', $id_current_episode)->first();
+        if(empty($episode_current)){
+            return response('', 204);
+        }
+        $episode_next = Episode::where('number_episode', $episode_current->number_episode + 1)->first();
+        if(empty($episode_next)){
+            return response('', 204);
+        }
+        return response($episode_next->video_id, 200);
     }
 
 }

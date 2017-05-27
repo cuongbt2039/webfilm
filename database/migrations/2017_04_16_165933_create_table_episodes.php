@@ -19,6 +19,7 @@ class CreateTableEpisodes extends Migration
             $table->integer('film_id')->unsigned();
             $table->string('long_description');
             $table->string('short_description');
+            $table->string('video_id');
             $table->timestamps();
             $table->foreign('film_id')
                     ->references('id')

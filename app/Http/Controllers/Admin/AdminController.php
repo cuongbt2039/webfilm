@@ -33,7 +33,7 @@ class AdminController extends Controller {
         $grid = \DataGrid::source($episodes);
         $grid->add('id', 'ID', true);
         $grid->add('name', 'Name');
-        $grid->add('youtube_id', 'Youtube Id');
+        $grid->add('video_id', 'Video Id');
         $grid->add('short_description', 'Short description');
         $grid->add('created_at', 'Created at');
         $grid->edit('/admin/edit-episode', 'Edit', 'show|modify');
@@ -48,7 +48,7 @@ class AdminController extends Controller {
         $episodes = Episode::find($id);
         $form = \DataForm::source($episodes);
         $form->add('name', 'Name', 'text')->rule('required');
-        $form->add('youtube_id', 'Youtube id', 'text')->rule('required');
+        $form->add('video_id', 'Video id', 'text')->rule('required');
         $form->add('long_description', 'Long description', 'redactor')->rule('required');
         $form->add('short_description', 'Short description', 'redactor')->rule('required');
 //        $form->add('photo', 'Photo', 'image')->move('uploads/demo/')->fit(240, 160)->preview(120, 80);
@@ -66,7 +66,7 @@ class AdminController extends Controller {
         $episodes = new Episode();
         $form = \DataForm::source($episodes);
         $form->add('name', 'Name', 'text')->rule('required');
-        $form->add('youtube_id', 'Youtube id', 'text')->rule('required');
+        $form->add('video_id', 'Video id', 'text')->rule('required');
         $form->add('film_id', 'Film id', 'text')->rule('required');
         $form->set('film_id', $filmId);
         $form->add('logo', 'Logo', 'text')->rule('required');

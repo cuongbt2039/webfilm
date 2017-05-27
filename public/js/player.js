@@ -1,33 +1,14 @@
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-checkCookie("cookie_code");
-getUserEpisode();
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
+var player;
+function playAuto() {
+    getUserEpisode();
 }
 
-function checkCookie(cname) {
-    if (getCookie(cname) != "") {
-        setCookie("cookie_code", cookie_code, 100000);
-    }
+function playByEpisode(viedeo_id, current_time) {
+    palyer(viedeo_id, current_time);
 }
+
 function sendUserEpisode() {
-    if(player && current_time != player.currentTime){
+    if (player && current_time != player.currentTime) {
         $.ajax({
             data: {cookie_code: cookie_code, episode_id: id_video_playing, time: player.currentTime},
             type: "post",
@@ -40,14 +21,12 @@ function sendUserEpisode() {
             }
         });
     }
-    
 }
 // create youtube player
-var player;
 function palyer(id, time) {
-    $('#' + id_video_playing).removeClass(playing);
+    $('#' + id_video_playing).removeClass('playing');
     id_video_playing = id;
-    $('#' + id_video_playing).addClass('playing')
+    $('#' + id_video_playing).addClass('playing');
     if (player) {
         player.load(id, {
             autoplay: true,
@@ -55,29 +34,25 @@ function palyer(id, time) {
         });
     } else {
         player = DM.player(document.getElementById("player"), {
-        video: id,
-        width: "100%",
-        height: "100%",
-        params: {
-            autoplay: false,
-            mute: true,
-            start: time
-        }
-    });
+            video: id,
+            width: "100%",
+            height: "100%",
+            params: {
+                autoplay: false,
+                mute: true,
+                start: time
+            }
+        });
+        player.addEventListener('video_end', function (event) {
+            nextEpisode();
+        });
     }
 }
 
-//player.addEventListener('playing', function(event) {
-//  alert('12');
-//});
-//player.addEventListener('pause', function(event) {
-//  alert('12b');
-//});
-
 setInterval(
-    function(){ 
+    function () {
         sendUserEpisode();
-    }, 
+    },
     10000
 );
 
@@ -89,9 +64,9 @@ function getUserEpisode() {
         dataType: 'json',
         success: function (result) {
             if (result.success) {
-                palyer(result[0].youtube_id, result[0].current_time);
+                palyer(result[0].video_id, result[0].current_time);
             } else {
-                palyer(result.youtube_id, 0);
+                palyer(result.video_id, 0);
             }
         },
         error: function () {
@@ -99,7 +74,25 @@ function getUserEpisode() {
         }
     });
 }
-$('.episode-right').click(function(){
-   var vid = $('.episode-right').attr('id');
-   palyer(vid, 0);
+$('.episode-right').click(function () {
+    var number_episode = $(this).attr('id');
+    window.location = "/nguoi-phan-xu-tap-" + number_episode;
 });
+function nextEpisode() {
+    $.ajax({
+        type: "get",
+        url: "/api/player/next",
+        data: {'episode_id': id_video_playing},
+        dataType: 'json',
+        success: function (result, textStatus, xhr) {
+            if (xhr.status == 200) {
+                palyer(result, 0);
+            } else {
+                alert("Mời các bạn xem phim khác!");
+            }
+        },
+        error: function () {
+            console.log("error");
+        }
+    });
+}

@@ -8,6 +8,14 @@
 .playing{
     border-left: red 5px solid;
 }
-.episode-right h3{
+.episode-right a, .episode-right h3{
     color: white;
+}
+.episode-right:hover{
+    cursor: pointer;
+}
+#list-film-label{
+    font-size: 29px;
+    margin-top: 0px;
+    font-weight: 700;
 }

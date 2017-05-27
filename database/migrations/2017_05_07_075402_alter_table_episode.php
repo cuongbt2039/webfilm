@@ -15,7 +15,6 @@ class AlterTableEpisode extends Migration
     {
         Schema::table('episodes', function (Blueprint $table) {
             $table->integer('number_episode');
-            $table->renameColumn('youtube_id', 'video_id');
         });
     }
 

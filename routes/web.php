@@ -13,8 +13,10 @@
 
 
 Route::get('/', 'PlayerController@index');
+Route::get('nguoi-phan-xu-tap-{episodeId}', ['as'=>'episodeId', 'uses'=>'PlayerController@play']);
 Route::post('api/player/post', 'PlayerApi@postEpisode')->middleware('api');
 Route::get('api/player/get', 'PlayerApi@getEpisode')->middleware('api');
+Route::get('api/player/next', 'PlayerApi@nextEpisode')->middleware('api');
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('home', 'AdminController@index');
