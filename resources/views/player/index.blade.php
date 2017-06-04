@@ -10,13 +10,30 @@
     </div>
     <div class="col-md-2" style="padding: 0">
         <h2 id="list-film-label">Các tập phim</h2>
-        @foreach($list_episode as $number_episode=>$id_ep)
-            @include('player.episode_rightbar', compact('id_ep'))
-        @endforeach
+        <div class="outside">
+            <span class="slick-prev">← previous  | </span><span class="slick-next" >next →</span>
+        </div>
+        <ul class="bxslider" style="padding-left: 0px">
+            <?php $temp = 0?>
+            @foreach($list_episode as $number_episode=>$id_ep)
+                @if($temp == 0)
+                    <div>
+                @endif
+                    <?php $temp += 1?>
+                @include('player.episode_rightbar', compact('id_ep'))
+                @if($temp == NUMBER_SLIDE_SHOW_EPISOE)
+                    </div>
+                    <?php $temp = 0?>
+                @endif
+            @endforeach
+        </ul>
     </div>
 @endsection
 
 @section('js_footer')
+    <script>
+        var current_slide = 0;
+    </script>
     <script src="/js/player.js"></script>
     <script>
         playAuto();

@@ -8,6 +8,9 @@
 @endsection
 
 @section('js_footer')
+    <script>
+        var current_slide = setVariable({{$currentSlide}}, 0);
+    </script>
     <script src="/js/player.js"></script>
     <script>
         var viedeo_id = setVariable("{{$videoId}}", 1);

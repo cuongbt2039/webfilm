@@ -1,21 +1,72 @@
-.episode-right{
+.episode-right {
     background-image: url(http://res.cloudinary.com/dzaidinjj/image/upload/v1494062465/nguoi-phan-xu-1_jgonb0.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
     height: 121px;
 }
-.playing{
+
+.playing {
     border-left: red 5px solid;
 }
-.episode-right a, .episode-right h3{
+
+.episode-right a, .episode-right h3 {
     color: white;
 }
-.episode-right:hover{
+
+.episode-right:hover {
     cursor: pointer;
 }
-#list-film-label{
+
+#list-film-label {
     font-size: 29px;
     margin-top: 0px;
     font-weight: 700;
+}
+/*menu*/
+
+nav .navbar-brand {
+    font-size: 30px;
+    float: none;
+}
+nav .navbar-toggle {
+    margin: 13px 15px 13px 0;
+}
+nav a {
+    font-size: 15px;
+    padding-bottom: 20px !important;
+    transition: all 0.3s ease;
+}
+nav.navbar.shrink {
+    min-height: 35px;
+}
+nav.navbar.shrink .navbar-brand {
+    font-size: 25px;
+}
+nav.navbar.shrink a {
+    font-size: 15px;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
+nav.navbar.shrink .navbar-toggle {
+    margin: 8px 15px 8px 0;
+    padding: 4px 5px;
+}
+/*end menu*/
+.main{
+    margin-top: 65px;
+    height: 100%;
+}
+.main-menu{
+    padding:0 30px;
+}
+.navbar-brand>img{
+    display: inline-block;
+    margin-top: 3px;
+    border-radius: 20px;
+}
+.navbar-brand h1{
+    margin: 0;
+    font-size: 26px;
+    display: inline-block;
 }

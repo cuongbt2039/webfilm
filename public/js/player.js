@@ -96,3 +96,9 @@ function nextEpisode() {
         }
     });
 }
+
+$('.bxslider').slick({
+    nextArrow: $('.slick-next'),
+    prevArrow: $('.slick-prev'),
+    initialSlide: setVariable(current_slide, 0)
+});
