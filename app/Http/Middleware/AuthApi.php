@@ -1,28 +1,48 @@
 <?php
 
-namespace App\Http\Middleware;
+    namespace App\Http\Middleware;
 
-use Closure;
+    use Closure;
 
-class AuthApi
-{
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
+    class AuthApi
     {
-        $cookie_code = $request->cookie('cookie_code');
-        if (empty($cookie_code)) {
-            $cookie_code = str_random(30) . time();
+        /**
+         * Handle an incoming request.
+         *
+         * @param  \Illuminate\Http\Request $request
+         * @param  \Closure $next
+         * @return mixed
+         */
+        public function handle($request, Closure $next)
+        {
+            $this->initCookieCode($request);
+//            $this->initTimeStartSession($request);
+
+            return $next($request);
         }
-        if(!defined('COOKIE_CODE')){
-            define('COOKIE_CODE', 'zREQCkT29RGfDXZW6LMgnFjRiiNirf1492480507');
+
+        private function initTimeStartSession($request)
+        {
+            $time_start_session = $request->session('time_start');
+            if (empty($time_start_session)) {
+                $time_start_session = time();
+            }
+
+            if (!defined('TIME_START')) {
+                define('TIME_START', $time_start_session);
+            }
+            dd(TIME_START);
         }
-        
-        return $next($request);
+
+        private function initCookieCode($request)
+        {
+            $cookie_code = $request->cookie('cookie_code');
+            if (empty($cookie_code)) {
+                $cookie_code = str_random(30) . time();
+            }
+
+            if (!defined('COOKIE_CODE')) {
+                define('COOKIE_CODE', $cookie_code);
+            }
+        }
     }
-}

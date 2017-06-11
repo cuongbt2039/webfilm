@@ -28,6 +28,7 @@
             @endforeach
         </ul>
     </div>
+{{--    @include('app.cta_box')--}}
 @endsection
 
 @section('js_footer')

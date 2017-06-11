@@ -26,6 +26,9 @@
         <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
          @yield('css')
+        <script>
+            var cookie_code = "{{COOKIE_CODE}}";
+        </script>
     </head>
     <body>
         @include('app.menu')

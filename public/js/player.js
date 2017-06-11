@@ -86,7 +86,7 @@ function nextEpisode() {
         dataType: 'json',
         success: function (result, textStatus, xhr) {
             if (xhr.status == 200) {
-                palyer(result, 0);
+                window.location.href = '/nguoi-phan-xu-tap-' + result;
             } else {
                 alert("Mời các bạn xem phim khác!");
             }

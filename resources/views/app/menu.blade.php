@@ -17,7 +17,11 @@
                 <li><a href="/dien-vien-trong-nguoi-phan-xu" data-toggle="tooltip" title="Sớm ra mắt!">Các diễn viên trong phim</a></li>
                 <li><a href="#" data-toggle="tooltip" title="Sớm ra mắt!">Những câu nói thú vị</a></li>
                 <li>
-                    <a href="#">Đăng nhập/Đăng ký</a>
+                    @if(Auth::check())
+                        <a href="/thoat">Đăng xuất</a>
+                    @else
+                            <a href="/login">Đăng nhập/Đăng ký</a>
+                    @endif
                 </li>
             </ul>
         </div>
