@@ -82,5 +82,5 @@ class AdminController extends Controller {
         $form->build();
         return $form->view('admin.film.edit_episode', compact('form'));
     }
-   
+
 }
