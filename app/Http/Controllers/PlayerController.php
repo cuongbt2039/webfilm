@@ -42,8 +42,8 @@
                 }
             } else {
                 $currentTime = $episode->current_time;
-                $videoId = $episode->video_id;
             }
+            $videoId = $episode->video_id;
             $divide = round($episodeId / NUMBER_SLIDE_SHOW_EPISOE, 0);
             $currentSlide = $divide != 0 ? $divide - 1: $divide - 2;
 
