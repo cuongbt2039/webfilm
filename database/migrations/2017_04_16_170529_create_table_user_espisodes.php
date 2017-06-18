@@ -13,7 +13,7 @@ class CreateTableUserEspisodes extends Migration
      */
     public function up()
     {
-        Schema::create('user_espisode', function (Blueprint $table) {
+        Schema::create('user_episode', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('film_id')->unsigned();
             $table->integer('user_id')->unsigned();
