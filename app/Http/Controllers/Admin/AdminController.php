@@ -68,6 +68,7 @@ class AdminController extends Controller {
         $form->add('name', 'Name', 'text')->rule('required');
         $form->add('video_id', 'Video id', 'text')->rule('required');
         $form->add('film_id', 'Film id', 'text')->rule('required');
+        $form->add('number_episode', 'Number Episode', 'text')->rule('required');
         $form->set('film_id', $filmId);
         $form->add('logo', 'Logo', 'text')->rule('required');
         $form->set('logo', 'default');
