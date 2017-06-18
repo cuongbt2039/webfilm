@@ -22,7 +22,7 @@
         <title>Phim Nguoi Phan Xu</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="/css/all.css" rel="stylesheet" type="text/css">
+        <link href="./css/all.css" rel="stylesheet" type="text/css">
         <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
          @yield('css')
