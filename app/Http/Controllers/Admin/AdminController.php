@@ -18,13 +18,13 @@ class AdminController extends Controller {
     public function index() {
         $films = \DB::table('films'); //Film::get(['name', 'short_description']);
         $grid = \DataGrid::source($films);
-        dd($films);
+        $nameOfFilm = "Nguoi Phan Xu";
         $grid->add('id', 'ID', true);
         $grid->add('name', 'Name');
         $grid->add('short_description', 'Short description');
         $grid->paginate(10);
 
-        return view('admin.index', compact('grid'));
+        return view('admin.index', compact('grid', 'nameOfFilm'));
     }
 
     public function manageFilm($id) {
