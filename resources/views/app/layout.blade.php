@@ -7,7 +7,7 @@
         <meta property="og:locale" content="vn_VN" />
         <meta property="og:type" content="film" />
         <meta property="og:title" content="Phim: Nguoi Phan Xu" />
-        <meta name="description" content="Khai thác đề tài về hoạt động tội phạm, băng nhóm
+        <meta name="description" content="Phim Nguoi Phan Xu | Nguoi Phan Xu | Phim VTV Nguoi phan xu | Khai thác đề tài về hoạt động tội phạm, băng nhóm
          có tổ chức thời kinh tế thị trường - sự kết hợp giữa bạo lực và kinh doanh,
          trùm giang hồ đội lốt doanh nhân, Người phán xử hy vọng sẽ mang lại luồng gió mới cho thể loại phim hình sự.">
 
