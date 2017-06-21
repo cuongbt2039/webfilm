@@ -21,7 +21,7 @@
 
         public static function getListEpisode()
         {
-            return Episode::pluck('video_id', 'number_episode')->orderBy('number_episode')->all();
+            return Episode::pluck('video_id', 'number_episode');
         }
 
         public static function getEpisode($id)
