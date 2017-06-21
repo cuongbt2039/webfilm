@@ -23,8 +23,10 @@
             $isPlayByEpisode = FALSE;
             $cookie_code = COOKIE_CODE;
             $list_episode = Episode::pluck('video_id', 'number_episode')->all();
+            $descriptionTitle = "Phim Người Phán Xử";
+            $descriptionContent = "Khai thác đề tài về hoạt động tội phạm, băng nhóm có tổ chức thời kinh tế thị trường - sự kết hợp giữa bạo lực và kinh doanh, trùm giang hồ đội lốt doanh nhân, Người phán xử hy vọng sẽ mang lại \"luồng gió\" mới cho thể loại phim hình sự. Theo chia sẻ của đạo diễn Mai Hiền - đạo diễn phim Người phán xử: \"Người phán xử là một câu chuyện hư cấu nhưng ở mức vừa phải để khán giả vẫn cảm thấy hấp dẫn bởi câu chuyện phù hợp với xã hội Việt Nam, con người Việt Nam. Hy vọng diễn xuất của các diễn viên sẽ mang đến nhiều thú vị cho khán giả\".";
 
-            return view('player.index', compact('cookie_code', 'list_episode', 'isPlayByEpisode'));
+            return view('player.index', compact('descriptionTitle','descriptionContent', 'cookie_code', 'list_episode', 'isPlayByEpisode'));
         }
 
         public function play($episodeId)
@@ -46,8 +48,9 @@
             $videoId = $episode->video_id;
             $divide = round($episodeId / NUMBER_SLIDE_SHOW_EPISOE, 0);
             $currentSlide = $divide != 0 ? $divide - 1: $divide - 2;
-
-            return view('player.play', compact('currentSlide','videoId', 'cookie_code', 'list_episode', 'isPlayByEpisode', 'currentTime'));
+            $descriptionTitle = $episode->name;
+            $descriptionContent = $episode->short_description;
+            return view('player.play', compact('descriptionTitle','descriptionContent', 'currentSlide','videoId', 'cookie_code', 'list_episode', 'isPlayByEpisode', 'currentTime'));
         }
 
     }

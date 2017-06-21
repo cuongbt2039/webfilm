@@ -5,8 +5,17 @@
 @endsection
 
 @section('body')
-    <div class="col-md-10"  id="player" style="height: 95%">
+    <div class="col-md-10 container-flex">
+        <div id="player" style="width: 100%;">
 
+        </div>
+        <div class="description" style="width: 100%">
+            <h3>{!! $descriptionTitle !!}</h3>
+            <hr>
+            <p>
+                {!! $descriptionContent !!}
+            </p>
+        </div>
     </div>
     <div class="col-md-2" style="padding: 0">
         <h2 id="list-film-label">Các tập phim</h2>
