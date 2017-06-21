@@ -39,7 +39,7 @@ function palyer(id, time) {
             height: "100%",
             params: {
                 autoplay: false,
-                mute: true,
+                // mute: true,
                 start: time
             }
         });
