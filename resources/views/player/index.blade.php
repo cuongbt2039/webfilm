@@ -24,7 +24,7 @@
         </div>
         <ul class="bxslider" style="padding-left: 0px">
             <?php $temp = 0?>
-            @foreach($list_episode as $number_episode=>$id_ep)
+            @foreach($list_episode as $number_episode => $id_ep)
                 @if($temp == 0)
                     <div>
                 @endif

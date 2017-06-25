@@ -24,9 +24,10 @@ function sendUserEpisode() {
 }
 // create youtube player
 function palyer(id, time) {
-    $('#' + id_video_playing).removeClass('playing');
+    $('#' + id).removeClass('playing');
     id_video_playing = id;
-    $('#' + id_video_playing).addClass('playing');
+    $('#' + id).addClass('playing');
+    console.log(id_video_playing);
     if (player) {
         player.load(id, {
             autoplay: true,
@@ -38,7 +39,7 @@ function palyer(id, time) {
             width: "100%",
             height: "100%",
             params: {
-                autoplay: false,
+                autoplay: true,
                 // mute: true,
                 start: time
             }

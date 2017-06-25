@@ -33,7 +33,7 @@
     <body>
         @include('app.menu')
         <div class="container-fluid main">
-        @yield('body')
+            @yield('body')
         </div>
         @include('app.footer')
         @include('partials.ga')
