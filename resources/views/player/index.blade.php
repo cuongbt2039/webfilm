@@ -7,7 +7,7 @@
 @section('body')
     <div class="col-md-10 container-flex">
         <div id="player" style="width: 100%;">
-
+            <div class="loader"></div>
         </div>
         <div class="description" style="width: 100%">
             <h3>{!! $descriptionTitle !!}</h3>
