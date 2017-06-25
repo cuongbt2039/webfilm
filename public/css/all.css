@@ -95,7 +95,7 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
 .container-flex{
     display: flex;
     flex-direction: column;
-    height: 600px;
+    height: 800px;
 }
 #player{
     height: 100%;
