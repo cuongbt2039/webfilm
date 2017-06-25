@@ -9,6 +9,12 @@
         <div id="player" style="width: 100%;">
             <div class="loader"></div>
         </div>
+        <div class="list-episode" style="width: 100%">
+            <h4>Các tập phim</h4>
+            @foreach($list_episode as $numberEpisode => $id_ep)
+                <a href="/nguoi-phan-xu-tap-{{$numberEpisode}}" class="episode">{{$numberEpisode}}</a>
+            @endforeach
+        </div>
         <div class="description" style="width: 100%">
             <h3>{!! $descriptionTitle !!}</h3>
             <hr>

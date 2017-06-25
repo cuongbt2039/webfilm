@@ -107,6 +107,7 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
 .main, .navbar{
     padding: 0 9%;
 }
+/*start loading*/
 .loader {
     border: 4px solid #f3f3f3;
     border-radius: 50%;
@@ -125,4 +126,16 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+/*end loading*/
+.list-episode{
+    margin-top: 10px;
+    line-height: 40px;
+}
+.episode{
+    padding: 5px 10px;
+    border: 1px solid silver;
+    width: 45px;
+    height: 45px;
+    background: none repeat scroll 0 0 #1f1f1f;
 }
