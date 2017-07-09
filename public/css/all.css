@@ -104,8 +104,12 @@ footer { background-color:#0c1a1e; min-height:350px; font-family: 'Open Sans', s
     border-radius: 4px;
     background: black;
 }
-.main, .navbar{
-    padding: 0 9%;
+
+
+@media only screen and (min-width : 992px) {
+    .main, .navbar{
+        padding: 0 9%;
+    }
 }
 /*start loading*/
 .loader {

@@ -20,7 +20,7 @@ class CreateTableUserEspisodes extends Migration
             $table->integer('current_time');
             $table->foreign('film_id')
                     ->references('id')
-                    ->on('films')
+                    ->on('episodes')
                     ->onDelete('cascade');
             $table->foreign('user_id')
                     ->references('id')
