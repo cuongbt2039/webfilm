@@ -29,6 +29,7 @@
         <script>
             var cookie_code = "{{COOKIE_CODE}}";
         </script>
+        @include('partials.adsense')
     </head>
     <body>
         @include('app.menu')
