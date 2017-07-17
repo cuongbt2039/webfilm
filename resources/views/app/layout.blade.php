@@ -29,7 +29,6 @@
         <script>
             var cookie_code = "{{COOKIE_CODE}}";
         </script>
-        @include('partials.adsense')
     </head>
     <body>
         @include('app.menu')
@@ -38,5 +37,6 @@
         </div>
         @include('app.footer')
         @include('partials.ga')
+        @include('partials.adsense')
     </body>
 </html>
